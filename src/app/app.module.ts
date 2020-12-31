@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ApplicationRef, NgModule } from '@angular/core';
+import { AppState } from './app.service';
 
 import { AppComponent } from './app.component';
+import { ViewersModule } from './viewers/viewers.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ViewersModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
-export class AppModule { }
+export class AppModule {  
+  constructor(public appRef: ApplicationRef, public appState: AppState) { }
+ }
